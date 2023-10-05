@@ -21,7 +21,7 @@ export default function Navbar() {
   const { user, isLoading, isError, error } = useAppSelector(
     (state) => state.user
   );
-
+  console.log(isLoading, isError, error);
   const dispatch = useAppDispatch();
 
   const handleLogout = () => {

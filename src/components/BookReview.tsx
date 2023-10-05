@@ -9,16 +9,11 @@ import {
 } from '@/redux/features/books/bookApi';
 import { useAppSelector } from '@/redux/hook';
 
-interface IProps {
-  id: string;
-}
-
-export default function BookReview({ id }: IProps) {
+export default function BookReview(id: any) {
+  const { user } = useAppSelector((state) => state.user);
   const [inputValue, setInputValue] = useState<string>('');
   const [postReview, { isLoading, isError, isSuccess }] =
     usePostReviewMutation();
-  console.log(isLoading, isError, isSuccess);
-  const { user } = useAppSelector((state) => state.user);
 
   const {
     data: reviews,
@@ -29,6 +24,8 @@ export default function BookReview({ id }: IProps) {
     pollingInterval: 50000,
   });
 
+  console.log(isLoading, isError, isSuccess);
+  console.log(reviewtError, reviewLoading);
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const options = {
@@ -62,7 +59,7 @@ export default function BookReview({ id }: IProps) {
       </form>
       <div className="mt-10">
         {reviews &&
-          reviews?.reviews?.map((review: string, index: number) => (
+          reviews?.reviews?.map((review: any, index: any) => (
             <div key={index} className="flex gap-3 items-center mb-5">
               <div>
                 <Avatar>

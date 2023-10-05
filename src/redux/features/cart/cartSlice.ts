@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 interface ICart {
-  books: IBook[];
+  books: any[];
   total: number;
 }
 
@@ -16,7 +16,7 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<IBook>) => {
+    addToCart: (state, action: PayloadAction<any>) => {
       const existing = state.books.find(
         (book) => book._id === action.payload._id
       );
@@ -44,7 +44,7 @@ const cartSlice = createSlice({
 
       state.total -= action.payload.price;
     },
-    removeFromCart: (state, action: PayloadAction<IBook>) => {
+    removeFromCart: (state, action: PayloadAction<any>) => {
       state.books = state.books.filter(
         (product) => product._id !== action.payload._id
       );

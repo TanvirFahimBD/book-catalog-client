@@ -136,7 +136,7 @@ export default function AddBook() {
                 />
               </div>
               <div>
-                <Button className="my-8" onClick={(e) => handleSubmit(e)}>
+                <Button className="my-8" onClick={(e: any) => handleSubmit(e)}>
                   Add book
                 </Button>
               </div>

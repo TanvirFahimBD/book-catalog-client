@@ -17,6 +17,7 @@ export default function BookDetails() {
     isLoading: singleBQLoading,
     error,
   } = useSingleBookQuery(id);
+  console.log(singleBQLoading, error);
   const [deleteBook, { isLoading, isError, isSuccess }] =
     useDeleteBookMutation();
   console.log(isLoading, isError, isSuccess);
@@ -50,7 +51,7 @@ export default function BookDetails() {
           </Button>
           <Button
             className="bg-red-400"
-            onClick={(event) => handleDelete(event)}
+            onClick={(event: any) => handleDelete(event)}
           >
             Delete
           </Button>

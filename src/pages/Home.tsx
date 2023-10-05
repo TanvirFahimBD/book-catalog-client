@@ -9,6 +9,7 @@ import { IBook } from '@/types/globalTypes';
 
 export default function Home() {
   const { data, isLoading, error } = useGetBooksQuery(undefined);
+  console.log(isLoading, error);
   return (
     <>
       <div className="flex justify-between items-center h-[calc(100vh-80px)] max-w-7xl mx-auto ">

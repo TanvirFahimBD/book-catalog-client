@@ -13,6 +13,7 @@ import { useState } from 'react';
 
 export default function Books() {
   const { data, isLoading, error } = useGetBooksQuery(undefined);
+  console.log(isLoading, error);
   const [book, setBook] = useState('');
   const { publishYear, searchBook } = useAppSelector((state) => state.book);
   const dispatch = useAppDispatch();
@@ -20,6 +21,8 @@ export default function Books() {
   const handleSlider = (value: number[]) => {
     dispatch(setPublishYear(value[0]));
   };
+
+  console.log(data?.data);
 
   let booksData;
   if (searchBook) {

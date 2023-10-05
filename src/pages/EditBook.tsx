@@ -17,6 +17,7 @@ export default function AddBook() {
     isLoading: singleQueryBookLoading,
     error,
   } = useSingleBookQuery(id);
+  console.log(singleQueryBookLoading, error);
   const [updateBook, { isLoading, isError, isSuccess }] =
     useUpdateBookMutation();
 
@@ -165,7 +166,7 @@ export default function AddBook() {
                 />
               </div>
               <div>
-                <Button className="my-8" onClick={(e) => handleSubmit(e)}>
+                <Button className="my-8" onClick={(e: any) => handleSubmit(e)}>
                   Edit book
                 </Button>
               </div>
